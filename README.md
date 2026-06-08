@@ -25,18 +25,14 @@ pip install -r requirements.txt
 https://drive.google.com/drive/folders/1lb2HhCWwEM3bZcjIQw3MAT81DioKJTje?usp=sharing
 ```
 
-期望的目录结构：
+目录结构：
 
 ```
 protein/
 ├── features/
-│   ├── esm_features_3B_with_type.npz        # 训练特征（参考，推理不需要）
-│   ├── esm_features_3B_benchmark.npz        # benchmark 特征（参考）
-│   ├── graphpart_set.fasta
-│   └── feature.py
 └── models_weights/
-    ├── outer{0-4}_val{*}.pt                 # 20个 MoE 模型
-    └── cwe_binary/cwe_outer{0-4}.pt         # 5个二分类器
+    ├── outer{0-4}_val{*}.pt                 
+    └── cwe_binary/cwe_outer{0-4}.pt        
 ```
 
 ### 4. 运行预测
