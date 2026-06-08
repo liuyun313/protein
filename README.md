@@ -17,7 +17,29 @@ conda activate protein
 pip install -r requirements.txt
 ```
 
-### 3. 运行预测
+### 3. 下载特征和模型权重
+
+从 Google Drive 下载 `features/` 和 `models_weights/` 文件夹，放到项目根目录：
+
+```
+https://drive.google.com/drive/folders/1lb2HhCWwEM3bZcjIQw3MAT81DioKJTje?usp=sharing
+```
+
+期望的目录结构：
+
+```
+protein/
+├── features/
+│   ├── esm_features_3B_with_type.npz        # 训练特征（参考，推理不需要）
+│   ├── esm_features_3B_benchmark.npz        # benchmark 特征（参考）
+│   ├── graphpart_set.fasta
+│   └── feature.py
+└── models_weights/
+    ├── outer{0-4}_val{*}.pt                 # 20个 MoE 模型
+    └── cwe_binary/cwe_outer{0-4}.pt         # 5个二分类器
+```
+
+### 4. 运行预测
 
 ```bash
 python predict.py \
@@ -26,7 +48,7 @@ python predict.py \
     --output results.txt
 ```
 
-### 4. 输出格式
+### 5. 输出格式
 
 两列制表符分隔：蛋白质ID + 定位标签
 
